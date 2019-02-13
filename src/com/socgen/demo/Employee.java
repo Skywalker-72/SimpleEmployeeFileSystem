@@ -28,6 +28,22 @@ public class Employee {
 				break;
 			}
 			case 2: {
+				List<EmployeeDetails> empObj=f.readObjectFromFile();
+				System.out.println("Search Employee by name: ");
+				boolean found = false;
+				String searchKey = input.next();
+				for (EmployeeDetails e : empObj) {
+					if(e.getFirstName().equalsIgnoreCase(searchKey)|| e.getLastName().equalsIgnoreCase(searchKey)) {
+						System.out.println("########The deatils of the requested Employee are:#######\n");
+						System.out.println("Name: "+ e.getFirstName()+" "+e.getLastName()+"\n");
+						System.out.println("Emp ID: "+ e.getEmpId()+"\n");
+						System.out.println("Dept: "+ e.getDpt()+"\n");
+						found = true;
+					}
+				}
+				if(!found) {
+					System.out.println("There is no Employee by the name: "+searchKey);
+				}
 				break;
 			}
 			case 3: {
